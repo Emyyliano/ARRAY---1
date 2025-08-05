@@ -1,0 +1,17 @@
+<script>
+    vetor = []
+    num = 0
+
+for(let i = 0; i < 5; i++){
+    vetor[i] = Number(prompt('Digite um número'))
+
+}
+num = vetor[0]
+
+for(let i = 0; i < 5; i++){
+    if(num < vetor[i]){
+        num = vetor[i]
+    }
+}
+console.log(`O maior número: ${num}`)
+</script>

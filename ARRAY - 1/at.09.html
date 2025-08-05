@@ -1,0 +1,12 @@
+<script>
+    vetor = []
+    soma = 0
+for(let i = 0; i < 6; i++){
+    vetor[i] = Number(prompt('Digite um número'))
+}
+
+for(let i = 1; i < 6; i += 2){
+    soma += vetor[i]
+}
+console.log(`O vetor: ${vetor}\nA soma com os índices pares: ${soma}`)
+</script>

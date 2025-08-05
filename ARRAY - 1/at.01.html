@@ -1,0 +1,13 @@
+<script>
+    let media = 0
+    let soma = 0
+    let vetor = []
+    for(let i = 0; i < 4; i++){
+        vetor[i] = Number(prompt('Digite um número'))
+    }
+    for(let j = 0; j < 4; j++){
+        soma +=  vetor[j]
+    }
+    media = soma / vetor.length
+    console.log(`O vetor do números digitados: ${vetor}\nA soma dos números digitados: ${soma}\nA média da soma: ${media}`)
+</script>

@@ -1,0 +1,16 @@
+<script>
+    vetor = []
+
+    for(let i = 0; i < 5; i++){
+        vetor[i] = Number(prompt('Digite um número'))
+
+    }
+    menor = vetor[0] 
+
+    for(let i = 0; i < 5; i++){
+        if(menor > vetor[i]){
+            menor = vetor[i]
+        }
+    }
+    console.log(`O menor número: ${menor}`)
+</script>

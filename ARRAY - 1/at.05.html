@@ -1,0 +1,16 @@
+<script>
+    vetor = []
+    impares = []
+
+    for(let i = 0; i < 5; i++){
+        vetor[i] = Number(prompt('Digite um número:'))
+        console.log('a',vetor)
+        
+    }
+    for(let i = 0; i < 5; i++){
+        if(vetor[i] % 2 !== 0){
+            impares += vetor[i] + ' , '
+        }
+    }
+    console.log(`Sequência de números ímpares: ${impares}`)
+</script>
