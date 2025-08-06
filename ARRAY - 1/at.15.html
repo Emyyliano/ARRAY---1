@@ -1,0 +1,19 @@
+<script>
+    let vetor = ['A','B','C','D','E','F','G','H','I','J']
+    let alfa = []
+    cont = 0
+    posição = 0
+
+    for(let i = 0; i < 10; i++){
+        while(cont < 3 && posição < 10){
+            alfa += vetor[posição] + ' '
+
+            cont++
+            posição++
+        }
+        
+        console.log(`Vetor Alfabeto: ${alfa}`)
+        alfa = []
+        cont = 0
+    }
+</script>

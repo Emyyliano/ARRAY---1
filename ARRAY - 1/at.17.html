@@ -1,0 +1,29 @@
+<script>
+    let vetor = []
+    let pares = []
+    let impares = []
+    let contPares = 0
+    let contImpares = 0
+
+    for(let i = 0; i < 5; i++){
+        vetor[i] = Number(prompt('Digite um número'))
+
+    }
+    
+    for(let i = 0; i < 5; i++){
+        if(vetor[i] % 2 == 0){
+            pares += vetor[i] + ' ,'
+            contPares++
+        }
+    }
+    
+    for(let i = 0; i < 5; i++){
+        if(vetor[i] % 2 != 0){
+            impares += vetor[i] + ' ,'
+            contImpares++
+        }
+    }
+    console.log(`Vetor dos números: ${vetor}`)
+    console.log(`Números pares: ${pares}\nQuantidade de números pares: ${contPares}`)
+    console.log(`Números ímpares: ${impares}\nQuantidade de números ímpares: ${contImpares}`)
+</script>

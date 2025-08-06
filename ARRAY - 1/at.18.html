@@ -1,0 +1,36 @@
+<script>
+    let vetor = []
+    let multip2 = []
+    let multip3 = []
+    let multip2e3 = []
+
+
+    for(let i = 0; i < 7; i++){
+        vetor[i] = Number(prompt('Digite um número'))
+
+    }
+    
+    for(let i = 0; i < 7; i++){
+        if(vetor[i] % 2 == 0){
+            multip2 +=  ' [ ' + vetor[i] + ' ] '
+
+        }
+    }
+
+    for(let i = 0; i < 7; i++){
+        if(vetor[i] % 3 == 0){
+            multip3 +=  ' [ ' + vetor[i] + ' ] '
+        }
+    }
+
+    for(let i = 0; i < 7; i++){
+        if(vetor[i] % 2 == 0 && vetor[i] % 3 == 0){
+            multip2e3 += ' [ ' + vetor[i] + ' ] '
+        }
+    }
+
+    console.log(`Vetor dos números: ${vetor}`)
+    console.log(`Números multiplos de 2: ${multip2}`)
+    console.log(`Números multiplos de 3: ${multip3}`)
+    console.log(`Números multiplos de 2 e 3: ${multip2e3}`)
+</script>

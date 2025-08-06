@@ -1,8 +1,21 @@
 <script>
-    vetor = []
+    let vetor = []
+    let negativo = []
+    let indice = []
 
-for(let i = 0; i < 8; i++){
-    vetor[i] = Number(prompt('Digite um número'))
+    for(let i = 0; i < 8; i++){
+        vetor[i] = Number(prompt('Digite um número'))
 
-}
+        if(vetor[i] < 0){
+            negativo += vetor[i] + ' ,'
+            indice = i
+
+        }
+        if(negativo.lenght > 1){
+            navigator = negativo[0]
+            indice = i
+
+        }
+    }
+    console.log(`Número negavitos: ${negativo}\nPosição do índice: ${indice}`)
 </script>
