@@ -1,22 +1,29 @@
 <script>
-    vetor = []
+    let vetor = []
+
     for(let i = 0; i < 9; i++){
         vetor[i] = Number(prompt('Digite um número:'))
-        
     }
+
     for(let i = 0; i < 9; i++){
-        if(vetor[i] < 2){
-            console.log(`${vetor[i]} ,Não primo`)
-        }else{
-            for(let j = 2; j <= Math.sqrt(vetor[i]); j++){
-                if(vetor[i] % j == 0){
-                    console.log(`${vetor[i]} ,Não primo`)
-                }else{
-                    console.log(`${vetor[i]}, na posição ${i}, é primo`)
+        let num = vetor[i]
+        let primo = true
+
+        if (num <= 1) {  
+            primo = false
+        } else {
+            for(let j = 2; j < num ;j++){
+                if(num % j == 0){
+                    primo = false
+                    break
                 }
             }
         }
+
+        if(primo){
+            console.log(`${num} é primo`)
+        } else {
+            console.log(`${num} não é primo`)
+        }
     }
-
-
 </script>
