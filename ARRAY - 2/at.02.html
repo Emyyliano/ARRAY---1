@@ -1,0 +1,26 @@
+<script>
+    let aprovado = 0
+    let aprovacao = 0
+    
+    for(let i = 0; i < 2; i++){
+        let provas = []
+        let nota = 0
+        
+        
+        for(let j = 0; j < 8; j++){
+            provas = String(prompt(`ALUNO: ${i + 1}\nQuestão ${j + 1}, (1) Acertou ou (2) Errou`))
+            if(provas == '1'){
+                nota++
+                
+            }
+        }
+        if(nota >= 6){
+            aprovado++
+        
+        } 
+        console.log(`Nota do Aluno ${i + 1}: ${nota.toFixed(1)}`)
+
+    }
+    aprovacao = (aprovado / 2) * 100
+    console.log(`A porcentagem de aprovação: ${aprovacao}%`)
+</script>
