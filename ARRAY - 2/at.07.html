@@ -1,0 +1,41 @@
+<script>
+    let nomes = []
+    let codigos = []
+    let precos = []
+    let totalProdutos = 10
+
+    for (let i = 0; i < totalProdutos; i++){
+        nomes[i] = prompt(`Digite o nome do produto ${i + 1}:`)
+        codigos[i] = Number(prompt(`Digite o código do produto ${nomes[i]}:`))
+        precos[i] = Number(prompt(`Digite o preço do produto ${nomes[i]}:`))
+
+    }
+    console.log("=== Produtos com aumento ===")
+
+    for (let i = 0; i < totalProdutos; i++){
+        let codigoPar = codigos[i] % 2 == 0
+        let precoAlto = precos[i] > 1000
+        let novoPreco = precos[i]
+        let aumentoAplicado = false
+
+        if (codigoPar && precoAlto){
+            novoPreco *= 1.20
+            aumentoAplicado = true
+
+        } else if (codigoPar){
+            novoPreco *= 1.15
+            aumentoAplicado = true
+
+        } else if (precoAlto){
+            novoPreco *= 1.10
+            aumentoAplicado = true
+
+        }
+
+        if (aumentoAplicado){
+            console.log(`Produto: ${nomes[i]} | Código: ${codigos[i]} | Preço antigo: R$ ${precos[i].toFixed(2)} | Novo preço: R$ ${novoPreco.toFixed(2)}`)
+        
+        }
+    }
+
+</script>

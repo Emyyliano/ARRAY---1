@@ -1,0 +1,34 @@
+<script>
+    let vetor1 = [5, 12, 4, 7, 10, 3, 2, 6, 23, 16]
+    let vetor2 = [3, 11, 5, 8, 2]
+
+    console.log("Números do primeiro vetor:")
+    console.log(vetor1.join(" "))
+    console.log("Posições:")
+    console.log("0 1 2 3 4 5 6 7 8 9")
+    console.log("\nNúmeros do segundo vetor (divisores):")
+    console.log(vetor2.join(" "))
+    console.log("Posições:")
+    console.log("0 1 2 3 4")
+    console.log("\n=== Análise de Divisores ===")
+
+    for (let i = 0; i < vetor1.length; i++){
+        let numero = vetor1[i]
+        let temDivisor = false
+        console.log(`\nNúmero ${numero}`)
+
+    for (let j = 0; j < vetor2.length; j++){
+        let divisor = vetor2[j]
+        if (numero % divisor == 0) {
+        console.log(`Divisível por ${divisor} na posição ${j}`)
+        temDivisor = true
+
+        }
+    }
+
+    if (!temDivisor) {
+        console.log("Não possui divisores no segundo vetor")
+        
+    }
+    }
+</script>

@@ -1,4 +1,53 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="codigo"></p>
+    <script>
+        let codigo = []
+        let quantProduto = []
+        
+        for(let i = 0; i < 2; i++){
+            codigo[i] = Number(prompt(`Produto: ${i + 1}\nDigite o código do produto:`))
+            quantProduto[i] = Number(prompt(`Digite a quantidade do produto:`)) 
+        }
 
-    
-</script>
+        for(let i = 0; i < codigo.length; i++){
+            document.getElementById('codigo').innerText += `ESTOQUE ANTIGO: Produto ${i + 1}: | Quantidade do produto: ${quantProduto[i]} | Código do produto: ${codigo[i]}\n`
+
+        }   
+        while(true){
+            let codigoCliente = Number(prompt('Olá Cliente!\nDigite seu código:\nDigite 0 para sair'))
+            if(codigoCliente == 0 || codigoCliente == null){
+                break
+            }
+            let compra = Number(prompt(`Olá cliente do código ${codigoCliente}\nDigite o código do produto que deseja comprar:`))
+            let pedido = Number(prompt(`Digite a quantidade do produto`))
+            
+            let indice = codigo.indexOf(compra)
+            if (indice == -1) {
+                console.log("Código inexistente")
+                continue
+            }
+
+            if (quantProduto[indice] >= pedido) {
+                quantProduto[indice] -= pedido
+                console.log("Pedido atendido. Obrigado e volte sempre!")
+                break
+
+            } else {
+                console.log("Não temos estoque suficiente dessa mercadoria.")
+                break
+            }
+    }
+    console.log("\nEstoque final:");
+    for (let i = 0; i < codigo.length; i++) {
+        console.log(`Código: ${codigo[i]} | Estoque: ${quantProduto[i]}`)
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<script>
+    let nomes = []
+    let medias = []
+    let totalAlunos = 7
+
+    for (let i = 0; i < totalAlunos; i++){
+        nomes[i] = prompt(`Digite o nome do aluno ${i + 1}:`)
+        medias[i] = Number(prompt(`Digite a média final de ${nomes[i]}:`))
+
+    }
+
+    let maiorMedia = Math.max(...medias)
+    let indiceMaior = medias.indexOf(maiorMedia)
+    console.log(`Aluno com maior média: ${nomes[indiceMaior]} (${maiorMedia})`)
+
+    console.log("\n=== Alunos que vão para avaliação final ===")
+    for (let i = 0; i < totalAlunos; i++){
+        if (medias[i] < 7){
+            let notaNecessaria = (5 * 2) - medias[i]
+            console.log(`${nomes[i]} precisa tirar ${notaNecessaria.toFixed(2)} na AF para ser aprovado`)
+
+        }
+    }
+
+</script>

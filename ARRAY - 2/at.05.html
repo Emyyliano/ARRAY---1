@@ -1,0 +1,35 @@
+<script>
+    let nomes = []
+    let vendas = []
+    let comissoes = []
+    let valoresReceber = []
+    let total = 10
+
+    for (let i = 0; i < total; i++){
+        nomes[i] = prompt(`Digite o nome do vendedor ${i + 1}:`)
+        vendas[i] = Number(prompt(`Digite o total de vendas de ${nomes[i]}:`))
+        comissoes[i] = Number(prompt(`Digite o percentual de comissão de ${nomes[i]} (ex: 5 para 5%):`))
+
+        valoresReceber[i] = vendas[i] * (comissoes[i] / 100)
+
+    }
+
+    console.log("=== Relatório de Comissões ===")
+    for (let i = 0; i < total; i++) {
+        console.log(`${nomes[i]} vai receber R$ ${valoresReceber[i].toFixed(2)}`)
+
+    }
+
+
+    let totalVendas = vendas.reduce((total, valor) => total + valor, 0)
+    console.log(`\nTotal de vendas da loja: R$ ${totalVendas.toFixed(2)}`)
+
+    let maiorValor = Math.max(...valoresReceber)
+    let menorValor = Math.min(...valoresReceber)
+    let indiceMaior = valoresReceber.indexOf(maiorValor)
+    let indiceMenor = valoresReceber.indexOf(menorValor)
+
+    console.log(`\nMaior valor a receber: R$ ${maiorValor.toFixed(2)} - Vendedor: ${nomes[indiceMaior]}`)
+    console.log(`Menor valor a receber: R$ ${menorValor.toFixed(2)} - Vendedor: ${nomes[indiceMenor]}`)
+
+</script>

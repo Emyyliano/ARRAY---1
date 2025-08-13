@@ -1,0 +1,52 @@
+<script>
+    let nomes = ["Ana", "Bruno", "Carla", "Daniel", "Eva"]
+    let salarios = [750, 1200, 850, 600, 1500]
+    let temposDeServico = [3, 6, 7, 4, 8]
+    let funcionariosSemAumento = []
+    let funcionariosComAumento = []
+
+    for (let i = 0; i < nomes.length; i++){
+        let nome = nomes[i]
+        let salario = salarios[i]
+        let tempoDeServico = temposDeServico[i]
+        let temTempoDeServico = tempoDeServico > 5
+        let temSalarioBaixo = salario < 800
+        let novoSalario = 0
+    
+    if (temTempoDeServico && temSalarioBaixo){
+        novoSalario = salario * 1.35 
+        funcionariosComAumento.push({ nome: nome, novoSalario: novoSalario.toFixed(2) })
+
+    } else if (temTempoDeServico) {
+        novoSalario = salario * 1.25 
+        funcionariosComAumento.push({ nome: nome, novoSalario: novoSalario.toFixed(2) })
+
+
+    } else if (temSalarioBaixo) {
+        novoSalario = salario * 1.15 
+        funcionariosComAumento.push({ nome: nome, novoSalario: novoSalario.toFixed(2) })
+    
+    } else {
+        funcionariosSemAumento.push(nome)
+
+    }
+    }
+
+    console.log("=== Relatório de Funcionários Sem Aumento ===")
+    if (funcionariosSemAumento.length > 0) {
+        console.log(funcionariosSemAumento.join(", "))
+    
+    }else {
+        console.log("Nenhum funcionário sem aumento neste relatório")
+
+    }
+
+    console.log("\n=== Relatório de Funcionários Com Aumento ===")
+    if (funcionariosComAumento.length > 0) {
+        funcionariosComAumento.forEach(funcionario => {console.log(`Nome: ${funcionario.nome}, Novo Salário: R$ ${funcionario.novoSalario}`)})
+    
+    }else {
+    console.log("Nenhum funcionário com direito a aumento neste relatório.")
+
+    }
+</script>
