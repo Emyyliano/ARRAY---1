@@ -1,0 +1,21 @@
+<script>
+    vetor = []
+    vetorImpar = []
+    vetorPar = []
+
+    for(let i = 0; i < 15; i++){
+        vetor[i] = Number(prompt('Digite um número: '))
+        if(15 < 5){
+            if(vetor[i] % 2 != 0){
+                vetorImpar[i] = vetor[i]
+                
+            } 
+            if(vetor[i] % 2 == 0){
+                vetorPar[i] = vetor[i]
+                console.log(vetor[i])
+                
+            }
+        }
+    }
+    console.log(`Vetor Ímpar: ${vetorImpar}\nVetor Par: ${vetorPar}\nRestante do vetor: ${vetor}`)
+</script>

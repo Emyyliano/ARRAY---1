@@ -1,0 +1,39 @@
+<script>
+    let vetorPreco = []
+    let vetorQuant = []
+    let totalVendas = 0
+    let salario = 545
+    let somaProduto = []
+    let comissão = 0
+    let maiorVenda = 0
+    let posição = 0
+
+    for(let i = 0; i < 10; i++){
+        vetorPreco[i] = Number(prompt(`Digite o preço do produto: ${i + 1}`))
+        vetorQuant[i] = Number(prompt(`Digite a quantidade vendida do produto: ${i + 1}`))
+
+    }
+
+    for(let i = 0; i < 10; i++){
+        somaProduto[i] = vetorPreco[i] * vetorQuant[i]
+        totalVendas += somaProduto[i]
+    }
+    maiorVenda = somaProduto[0]
+
+    for(let i = 0; i < 10; i++){
+        comissão = (totalVendas * 5 ) / 100
+        salario += comissão 
+
+        if(maiorVenda < somaProduto[i]){
+            maiorVenda = vetorPreco[i]
+            posição = i
+        }
+    }
+
+    for(let i = 0; i < 10; i++){
+        console.log(`Produto ${i + 1}: | Preço: R$${vetorPreco[i]} | Quantidade: ${vetorQuant[i]} | Total: R$${somaProduto[i]}`)
+        
+    }
+    console.log(`=== Relatório de Vendas ===`)
+    console.log(`Total vendido: R$${totalVendas}\nComissão (5%): R$${comissão}\nMais vendido: R$${maiorVenda} (posição ${posição})`)
+</script>

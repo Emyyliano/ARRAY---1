@@ -1,0 +1,37 @@
+<script>
+    let vetor = []
+    let codigo = 0
+    let vetorUm = []
+    let vetorDois = []
+    let posi = 0
+
+    for(let i = 0; i < 5; i++){
+        vetor[i] = Number(prompt('Digite um número real:'))
+        
+    }
+
+    codigo = Number(prompt('--- DIGITE 0 PARA FINALIZAR ---\n--- DIGITE 1 PARA MOSTRAR O VETOR NA ORDEM DIRETA ---\n--- DIGITE 2 PARA MOSTRAR O VETOR NA ORDEM ESQUERDA ---\nDigite o código:'))
+
+    if(codigo == 0 || codigo > 2){
+        console.error(`Programa Finalizado`);
+         
+    }
+
+    if(codigo == 1){
+        for(let i = 0; i < 5; i++){
+            vetorUm[i] = ' [' + vetor[i] + '] '
+            console.log(vetorUm)
+        }
+        console.log(`Vetor na ordem direta:\n${vetorUm}`)
+
+    }
+    
+    if(codigo == 2){
+        for(let i = 4; i >= 0; i--){
+            vetorDois[posi] = ' [' + vetor[i] + '] '
+            console.log(vetorDois)
+            posi++
+        }
+        console.log(`Vetor na ordem inversa:\n${vetorDois}`)
+    }
+</script>
