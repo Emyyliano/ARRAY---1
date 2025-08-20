@@ -1,0 +1,90 @@
+<body>
+    <script>
+        let janela = Array(24).fill(0)
+        let corredor = Array(24).fill(0)
+
+        function onibusLotado(){
+            return [...janela, ...corredor].every(lugar => lugar == 1)
+        }
+
+        function venderPassagem(){
+            if (onibusLotado()) {
+                alert("Ônibus lotado!")
+                return
+
+            }
+            let tipo = prompt("Deseja Janela (J) ou Corredor (C)?").toUpperCase()
+            let numero = Number(prompt("Digite o número da poltrona (1 a 24):")) - 1
+
+            if(numero < 0 || numero >= 24){
+                alert("Número inválido!")
+                return
+
+            }
+
+            if(tipo === "J"){
+                if (janela[numero] == 0){
+                    janela[numero] = 1
+                    alert(`Venda efetivada! Poltrona Janela ${numero+1}`)
+
+                }else{
+                    alert("Poltrona ocupada!")
+
+                }
+            }
+
+            else if(tipo == "C"){
+                if(corredor[numero] == 0){
+                    corredor[numero] = 1
+                    alert(`Venda efetivada! Poltrona Corredor ${numero+1}`)
+
+                }else{
+                    alert("Poltrona ocupada!")
+
+                }
+
+            }else{
+                alert("Opção inválida!")
+
+            }
+        }
+
+        function mostrarMapa(){
+            let mapa = "===== MAPA DE OCUPAÇÃO =====\n\n"
+
+            mapa += "JANELA:\n"
+            for(let i = 0; i < 24; i++){
+                mapa += `${i+1} - ${janela[i] == 1 ? "Ocupada" : "Livre"}\n`
+
+            }
+
+            mapa += "\nCORREDOR:\n"
+            for(let i = 0; i < 24; i++){
+                mapa += `${i+1} - ${corredor[i] == 1 ? "Ocupada" : "Livre"}\n`
+
+            }
+            document.getElementById('mapa').innerText = (mapa)
+
+        }
+        let opcao
+
+        do{
+            opcao = Number(prompt("Menu:\n1 - Vender passagem\n2 - Mostrar mapa de ocupação\n3 - Encerrar"))
+
+            if(opcao === 1){
+                venderPassagem()
+
+            }
+            else if(opcao == 2){
+                mostrarMapa()
+
+            }
+
+        }while (opcao != 3)
+
+        alert("Programa encerrado!")
+    </script>
+     <button onclick="mostrarMapa()">Mostrar Mapa/Atualizar mapa</button>
+    <pre id="mapa"></pre>
+
+</body>

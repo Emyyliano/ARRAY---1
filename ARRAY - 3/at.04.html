@@ -1,0 +1,60 @@
+<script>
+    let contas = []
+    let saldos = []
+
+    for(let i = 0; i < 10; i++){
+        let codigo
+        do{
+            codigo = Number(prompt(`Digite o código da conta ${i + 1}:`))
+
+        }while(contas.includes(codigo)) 
+
+        contas.push(codigo)
+        saldos.push(Number(prompt(`Digite o saldo inicial da conta ${codigo}:`)))
+
+    }
+    let opcao
+
+    do{
+        opcao = Number(prompt("Menu Bancário:\n1. Efetuar depósito\n2. Efetuar saque\n3. Consultar ativo bancário\n4. Finalizar\n"))
+        if(opcao == 1){
+            let codigo = Number(prompt("Digite o código da conta:"))
+            let valor = Number(prompt("Digite o valor do depósito:"))
+            let posicao = contas.indexOf(codigo)
+
+            if(posicao === -1){
+                alert("Conta não encontrada!")
+            }else{
+                saldos[posicao] += valor
+                alert(`Depósito realizado! Novo saldo da conta ${codigo}: R$ ${saldos[posicao].toFixed(2)}`)
+
+            }
+        } 
+        else if(opcao == 2){
+            let codigo = Number(prompt("Digite o código da conta:"))
+            let valor = Number(prompt("Digite o valor do saque:"))
+            let posicao = contas.indexOf(codigo)
+
+            if(posicao == -1){
+                alert("Conta não encontrada!")
+
+            }
+            else if (saldos[posicao] < valor){
+                alert("Saldo insuficiente!")
+
+            }
+            else{
+                saldos[posicao] -= valor
+                alert(`Saque realizado! Novo saldo da conta ${codigo}: R$ ${saldos[posicao].toFixed(2)}`)
+
+            }
+        }
+        else if(opcao == 3){
+            let soma = saldos.reduce((total, saldo) => total + saldo, 0)
+            alert(`Ativo bancário total: R$ ${soma.toFixed(2)}`)
+
+        }
+    } while(opcao != 4)
+
+    alert("Programa finalizado. Obrigado por utilizar nosso sistema!")
+</script>

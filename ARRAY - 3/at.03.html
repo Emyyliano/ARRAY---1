@@ -1,21 +1,34 @@
 <script>
-    vetor = []
-    vetorImpar = []
-    vetorPar = []
+    let vetor = []
+    let vetorImpar = []
+    let vetorPar = []
+    let limite = 5
 
     for(let i = 0; i < 15; i++){
-        vetor[i] = Number(prompt('Digite um número: '))
-        if(15 < 5){
+        vetor[i] = Number(prompt(`Digite o ${i + 1}°: `))
+
+    }
+    for(let i = 0; i < 15; i++){    
+        if(vetorImpar.length < limite){
             if(vetor[i] % 2 != 0){
-                vetorImpar[i] = vetor[i]
-                
-            } 
+                vetorImpar.push(vetor[i])
+
+                if (vetorImpar.length == 5) {
+                    console.log(`Vetor dos Ìmpares tá cheio: ${vetorImpar}`)
+                    vetorImpar = []
+                }
+            }
+        }    
+        if(vetorPar.length < limite){ 
             if(vetor[i] % 2 == 0){
-                vetorPar[i] = vetor[i]
-                console.log(vetor[i])
-                
+                vetorPar.push(vetor[i])
+
+                if (vetorPar.length == 5) {
+                    console.log(`Vetor dos Ìmpares tá cheio: ${vetorPar}`)
+                    vetorPar = []
+                }
             }
         }
     }
-    console.log(`Vetor Ímpar: ${vetorImpar}\nVetor Par: ${vetorPar}\nRestante do vetor: ${vetor}`)
+    console.log(`Restante do Vetor Ímpar: ${vetorImpar}\nRestante do Vetor Par: ${vetorPar}`)
 </script>
