@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function timeToMixJuice(suco) {
+            if (suco == 'Pure Strawberry Joy'){
+                return 0.5
+
+            }else if (suco == 'Green Garden'){
+                return 1.5
+
+            }else if (suco == 'Tropical Island'){
+                return 3
+
+            }else if (suco == 'All or Nothing'){
+                return 5
+
+            }else{
+                return 2.5
+
+            }
+        }
+
+        function limesToCut(quantosPrecisa, limoes) {
+            let fatiasTotal = 0
+            let limoesCortados = 0
+
+            for (let limao of limoes){
+                if(fatiasTotal >= quantosPrecisa){
+                    break
+                }
+
+                if(limao == 'pequeno'){
+                    fatiasTotal += 6
+
+                }else if (limao == 'médio'){
+                    fatiasTotal += 8
+
+                } else if (limao == 'grande'){
+                    fatiasTotal += 10
+
+                }
+
+                limoesCortados++
+            }
+
+            return limoesCortados
+        }
+
+        function remainingOrders(tempo, ordens) {
+            let i = 0
+            while (i < ordens.length && tempo > 0) {
+                let sucoTempo = timeToMixJuice(ordens[i])
+                tempo -= sucoTempo
+                i++
+            }
+            return ordens.slice(i)
+        }
+
+        alert('===== Menu =====\nAll or Nothing\nTropical Island\nGreen Garden\nPure Strawberry Joy')
+
+        let sucos = prompt('Digite o nome do suco para saber o tempo de preparo:')
+        alert(`O suco ${sucos} vai demorar ${timeToMixJuice(sucos)} minutos para ficar pronto.`)
+
+        console.log('Limões cortados:', limesToCut(50, ['pequeno', 'pequeno', 'grande', 'médio', 'pequeno', 'grande', 'grande']))
+
+        console.log('Pedidos restantes:', remainingOrders(5, ['Suco de Maracujá', 'All or Nothing', 'Green Garden']))
+    </script>
+</body>
+</html>
