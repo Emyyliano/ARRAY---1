@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site três</title>
+</head>
+<body>
+    <script>
+
+        function ataque(cavaleiroAcordado) {
+            return !cavaleiroAcordado
+
+        }
+
+        function espiar(cavaleiroAcordado, arqueiroAcordado, prisioneiroAcordado){
+            return cavaleiroAcordado || arqueiroAcordado || prisioneiroAcordado
+
+        }
+
+        function sinalizar(arqueiroAcordado, prisioneiroAcordado){
+        return !arqueiroAcordado && prisioneiroAcordado
+
+        }
+
+        function liberar(cavaleiroAcordado, arqueiroAcordado, prisioneiroAcordado, cachorroPresente){
+            if(cachorroPresente){
+                return !arqueiroAcordado
+
+            } else {
+                return prisioneiroAcordado && !cavaleiroAcordado && !arqueiroAcordado
+
+            }
+        }
+
+        const cavaleiro = false
+        const arqueiro = true
+        const prisioneiro = true
+        const cachorro = false
+
+        console.log(`Pode executar ataque rápido? ${ataque(cavaleiro)}`)
+        console.log(`Pode espiar o grupo? ${espiar(cavaleiro, arqueiro, prisioneiro)}`)
+        console.log(`Pode sinalizar para o prisioneiro? ${sinalizar(arqueiro, prisioneiro)}`)
+        console.log(`Pode libertar o prisioneiro? ${liberar(cavaleiro, arqueiro, prisioneiro, cachorro)}`)
+
+    </script>
+</body>
+</html>

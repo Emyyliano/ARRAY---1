@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site dois</title>
+</head>
+<body>
+    <script>
+        function valorPorDia(valorPorHora){
+            return valorPorHora * 8
+
+            }
+
+        function diasNoOrcamento(orcamento, valorPorHora){
+            return Math.floor(orcamento / valorPorDia(valorPorHora))
+
+            }
+
+        function precoComDescontoMensal(valorPorHora, diasTotais, descontoMensal){
+            const diasPorMes = 22
+            const valorDia = valorPorDia(valorPorHora)
+            const valorMes = valorDia * diasPorMes
+
+            const mesesCompletos = Math.floor(diasTotais / diasPorMes)
+            const diasRestantes = diasTotais % diasPorMes
+
+            const custoComDesconto = mesesCompletos * valorMes * (1 - descontoMensal)
+            const custoDiasRestantes = diasRestantes * valorDia
+
+            return Math.ceil(custoComDesconto + custoDiasRestantes)
+        }
+
+        console.log(`Valor por dia: ${valorPorDia(89)}`)
+        console.log(`Dias dentro do orçamento: ${diasNoOrcamento(20000, 89)}`)
+        console.log(`Preço final com desconto mensal: ${precoComDescontoMensal(89, 230, 0.42)}`)
+    </script>
+</body>
+</html>
